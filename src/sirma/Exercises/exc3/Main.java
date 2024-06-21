@@ -1,6 +1,6 @@
 package sirma.Exercises.exc3;
 
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class Main {
@@ -10,14 +10,10 @@ public class Main {
         int row=Integer.parseInt(input[0]);
         int col=Integer.parseInt(input[1]);
 
-        char[][] matrix1=new char[row][col];
-        char[][] matrix2=new char[row][col];
-        char[][] resultMatrix=new char[row][col];
+        char[][] matrix1=fillTheMatrix(row,col);
+        char[][] matrix2= fillTheMatrix(row,col);
+        char[][] resultMatrix=fillTheResultMatrix(matrix1,matrix2,row,col);
 
-        matrix1=fillTheMatrix(row,col);
-        matrix2=fillTheMatrix(row,col);
-
-        resultMatrix=fillTheResultMatrix(matrix1,matrix2,row,col);
         printMatrix(resultMatrix,row,col);
 
 
