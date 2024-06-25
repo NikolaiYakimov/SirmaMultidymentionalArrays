@@ -12,10 +12,10 @@ public class Main {
         int[][] matrix = fillTheMatrix(row, col, sc);
 
         String range=sc.nextLine();
-        int[] start=getPosition(range.split(":")[0]);
-        int[] end=getPosition(range.split(":")[1]);
+        int[] start=getPositions(range.split(":")[0]);
+        int[] end=getPositions(range.split(":")[1]);
 
-        int sum=findSumOfTheRange(matrix,start,end);
+        int sum=sumOfTheRange(matrix,start,end);
 
         System.out.println(sum);
     }
@@ -30,21 +30,22 @@ public class Main {
         }
         return matrix;
     }
-    public static int[] getPosition(String positionCell){
-        int row=Integer.parseInt(String.valueOf(positionCell.charAt(1)))-1;
-       int col=positionCell.charAt(0)-'A';
 
-       return new int[]{row,col};
+    public static int[] getPositions(String cell){
+        int row=Integer.parseInt(String.valueOf(cell.charAt(1)))-1;
+        int col=cell.charAt(0)-'A';
+
+        return new int[]{row,col};
     }
-
-    public static int findSumOfTheRange(int[][] matrix,int[] start,int[] end){
+    public static int sumOfTheRange(int[][] matrix,int[] start,int[] end){
         int sum=0;
 
-        for (int i = start[0]; i <=end[0] ; i++) {
+        for (int i = start[0]; i <= end[0]; i++) {
             for (int j = start[1]; j <=end[1] ; j++) {
                 sum+=matrix[i][j];
             }
         }
         return sum;
     }
+
 }
